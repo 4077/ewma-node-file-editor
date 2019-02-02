@@ -1,0 +1,42 @@
+// head {
+@__nodeId__: ~"ewma_nodeFileEditor__main";
+// }
+
+.@{__nodeId__} {
+    position: relative;
+
+    @less_color: #51A8D0;
+    @less_dark_color: #215F9A;
+    @less_pale_color: #D4F2FC;
+
+    > .nav {
+        background-color: #404040;
+
+        .type {
+            cursor: pointer;
+            float: left;
+            margin: 0;
+            padding: 5px 15px;
+            color: #BBBBBB;
+
+            &.has_file {
+                color: #FFFFFF;
+            }
+
+            &.selected {
+                background-color: @less_color;
+                color: #FFFFFF;
+            }
+
+            &.hover {
+                background-color: #808080;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    > .cp {
+        background-color: #202020;
+        padding: 10px;
+    }
+}
