@@ -45,8 +45,9 @@ class Main extends \Controller
             $targetNode = $d['target_node'];
 
             $ext = $this->getExtension($nodeType);
+            $dir = $this->getDirectory($nodeType);
 
-            $filePath = abs_path($this->_nodeFilePath(force_l_slash($targetNode), $nodeType) . '.' . $ext);
+            $filePath = abs_path($this->_nodeFilePath(force_l_slash($targetNode), $dir) . '.' . $ext);
 
             write($filePath, $d['cache']);
 
@@ -100,8 +101,9 @@ class Main extends \Controller
         }
 
         $ext = $this->getExtension($nodeType);
+        $dir = $this->getDirectory($nodeType);
 
-        $filePath = abs_path($this->_nodeFilePath(force_l_slash($targetNode), $nodeType) . '.' . $ext);
+        $filePath = abs_path($this->_nodeFilePath(force_l_slash($targetNode), $dir) . '.' . $ext);
 
         if (!file_exists($filePath)) {
             $codeTemplatesNode = $this->n(force_l_slash($this->data('template_node')));
@@ -118,6 +120,11 @@ class Main extends \Controller
         }
 
         return $filePath;
+    }
+
+    private function getDirectory($type)
+    {
+        return $this->dataByType[$type][0];
     }
 
     private function getExtension($type)
